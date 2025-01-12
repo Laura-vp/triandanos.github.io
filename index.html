@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Projeto 16</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+
+    <style>
+body {
+            
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #cbe0e9;
+       }
+        .h1tri{
+        color:rgb(33, 0, 124);
+        position: relative; margin-left: 200px;
+        }
+        .h3tri{
+            color:rgb(19, 0, 70);
+            position: absolute; margin-left: 100px; font-size: 26px; margin-top: 10px;
+
+        }
+
+        .h1anos{
+        color:rgb(33, 0, 124);
+        position: relative; margin-left: 1000px; margin-top: -55px;
+        }
+
+        .h3-a1, .h3-a2 {
+    position: absolute; 
+    z-index: 10;
+    color: rgb(19, 0, 70);
+    font-size: 26px;
+}
+
+.h3-a1 {
+    top: -10px; /* Adjust the distance from the top edge of the viewport */
+    left: calc(50% - 190px); /* Center-align (adjust '200px' as needed) */
+}
+
+.h3-a2 {
+    top: 20px; /* Adjust the distance from the top edge of the viewport */
+    left: calc(50% - 145px); /* Center-align (adjust '180px' as needed) */
+}
+
+
+    button {
+  background-color: #e3f1ffe5;
+  border: 1px solid rgba(27, 27, 35, 0.15);
+  border-radius: 6px;
+  color: #00294de5;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 3px 10px;
+  position: relative;
+}
+
+.bcriartri{
+background-color: #004581e5;
+  border: 1px solid rgba(27, 27, 35, 0.15);
+  box-shadow: rgba(27, 31, 35, 0.04) 0 1px 0, rgba(255, 255, 255, 0.25) 0 1px 0 inset;
+  border-radius: 6px;
+  color: #e0f1ff;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 3px 10px;
+  position: relative;
+}
+
+        .divtriangulostot{
+            position: absolute;
+            border: 2px solid rgb(93, 132, 238); 
+            padding: 20px; 
+            width: 40%; height: 80%;
+            left: 15px; margin-right: 15px;
+            border-radius: 10px;
+            background-color: rgb(172, 194, 255);
+        }
+        
+    .tabprincipaltri{
+        position: relative;
+        margin-top: 70px;
+        table-layout: fixed;
+    }
+   
+    
+        .tabprincipaltri tr {
+    padding: 1;
+    line-height: 0;
+    position: relative;
+}
+#final{
+    line-height:normal;
+}
+
+#agudos, #retos, #obtusos, #isosceles, #escalenos {
+    width: 100px;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    margin: 0;
+    padding: 0;
+}
+
+.divanos{
+            position: absolute;
+            border: 2px solid rgb(93, 132, 238); 
+            padding: 20px; 
+            width: 40%; height: 80%;
+            right: 15px; margin-left: 15px; margin-top: -3.5px;
+            border-radius: 10px;
+            background-color: rgb(172, 194, 255);
+        }
+
+        .divtabanos {
+        display: flex;
+        align-items: flex-start; 
+        gap: 15px;
+        margin-top: 20px;
+    }
+    .formanos{
+        margin-top: 70px;
+    }
+
+    
+
+    .tabanos .tabanos tr{
+        font-family: Arial, sans-serif;
+        width: 80%;
+        background-color: rgb(218, 227, 252);
+        padding: 10px;
+        text-align: left;
+        border: 1px solid rgb(0, 0, 0);
+        }
+
+        .tabanos {
+        border-collapse: collapse;
+        margin-top: 20px;
+        background-color: rgb(218, 227, 252);
+    }    
+
+    .tabanos td, .tabanos th {
+        border: 1px solid black;
+        padding: 5px;
+    }
+
+    .tabanos td {
+        white-space: pre-wrap; 
+    }
+
+    .tabanos .peculiaridades {
+        white-space: pre-wrap;
+    }
+    .btreiniciaranos {
+        background-color: #e3f1ffe5;
+        border: 1px solid rgba(27, 27, 35, 0.15);
+        border-radius: 6px;
+        color: #00294de5;
+        cursor: pointer;
+        font-size: 18px;
+        padding: 3px 10px;
+        margin-left: 1px;
+        margin-top:20px;
+    }
+
+    .maninst{
+    width:80px;
+    height:80px;
+}
+.butinstrucoes{
+    position: absolute;
+margin-left: 1240px;
+top: -3px;
+z-index: 999; 
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
+    
+
+    
+    </style>
+</head>
+<body>
+
+    <button class="butinstrucoes" onclick="instrucoes()"><img class="maninst"src="imagens/instrucoes.png"></button>
+<div id="instrucoes" style="display: none; margin-top: 5px; background-color: rgb(218, 227, 252); padding: 10px; border-radius: 5px;">
+    <p style="color:rgb(19, 0, 70);"><strong>Manual de instruções</strong></p>
+    <table>
+        <tr><td><b>Criar um triângulo:</b></td>
+            <td></td>
+            <td><b>Peculiaridades dos anos:</b></td>
+        </tr>
+        <tr>
+            <td style="width: 30%;" valign="top"> 
+                <ul>
+                <li>Forneça dados para os valores dos lados, dos ângulos, ou ambos;</li>
+                <li>O valor dos lados e dos ângulos deve ser positivo;</li>
+                <li>Ao escolher o valor do comprimento dos lados do triângulo, deve respeitar a sua desigualdade, ou seja, a soma de dois dos lados tem de ser maior do que o comprimento do terceiro lado;</li>
+                <li>A soma dos ângulos de um triângulo deve ser 180°;</li>
+            </ul>
+        </td>
+        <td style="width: 30%" valign="top">
+            <ul>
+                <li>Se todos os lados de um triângulo forem iguais, significa que os seus ângulos internos são 60° (e vice-versa);</li>
+                <li>Se dois ângulos são iguais, os lados opostos também devem ser iguais (e vice-versa);</li>
+                <li>Se um ângulo é de 90°, o comprimento dos lados deve seguir o Teorema de Pitágoras.</li>
+            </ul>
+        </td>
+        <td style="width: 30%" valign="top">
+            <ul>
+               <li>Anos bissextos são anos divisíveis por 4, mas não por 100, a não ser que também sejam divisíveis por 400;</li> 
+               <li>Para o povo antigo de Gulamatu, o festival Huluculu ocorre em anos divisíveis por 15 e o festival Bulukulu ocorre em anos divisíveis por 55, desde que também sejam anos bissextos;</li>
+               <li>Todos os outros anos são anos normais.</li>
+            </ul>
+        </td>
+        </tr>
+   
+</table>
+</div>
+
+    <h1 class="h1tri">Triângulos</h1>
+
+    <div class="divtriangulostot">
+    
+    <h3 class="h3tri">Crie o seu próprio triângulo</h3>
+
+<table class="tabprincipaltri">
+    <tr>
+        <td style="width: 300px">  
+            <button type="submit" onclick="lados()" >Escolher o tamanho dos lados</button>
+            <div id="formlados" style="display: none;">
+
+            <p>Escreva, em centímetros:</p>
+            <form>
+                <table>
+                    <tr>
+                        <td><label for="l1">Lado 1:</label></td>
+                        <td><input type="number" id="l1"></td>
+                        <td><p>cm</p></td>
+                    </tr>
+
+                    <tr>  
+                        <td><label for="l2">Lado 2:</label></td>
+                        <td><input type="number" id="l2"></td>
+                        <td><p>cm</p></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><label for="l3">Lado 3:</label></td>
+                        <td><input type="number" id="l3"></td>
+                        <td><p>cm</p></td>
+                    </tr>
+                </table>
+            </form>
+            </div>
+
+</br>
+            <button type ="submit" style="margin-top:30px; margin-bottom: 10px;" onclick="angulos()">Escolher o valor dos ângulos internos</button>
+
+            <div id="formangulos" style="display: none;">
+                <p>Escreva, em graus:</p>
+
+                <form>
+                    <table>
+                        <tr>
+                            <td><label for="a1">Ângulo 1:</label></td>
+                            <td><input type="number" id="a1"></td>
+                            <td><p>°</p></td>
+                        </tr>
+                        <tr>
+                            <td><label for="a2">Ângulo 2:</label></td>
+                            <td><input type="number" id="a2"></td>
+                            <td><p>°</p></td>
+                        </tr>    
+                        <tr>
+                            <td><label for="a3">Ângulo 3:</label></td>
+                            <td><input type="number" id="a3"><br> </td>
+                            <td><p>°</p></td>
+                        </tr> 
+
+                    </table>
+
+                </form>
+            </div>
+        </td>
+
+        <td style="vertical-align: top;">
+            <button type="button" class="bcriartri" id="criar" onclick="criar()">Criar o triângulo</button>
+
+            <div id="final" style="display: none; margin-top: 10px;">
+                <p id="finallados"></p>
+                <p id="finalangulos"></p>
+                
+<img id="agudos" src="imagens/agudos.png" style="display: none;">
+<img id="retos" src="imagens/retos.png" style="display: none;">
+<img id="obtusos" src="imagens/obtusos.png" style="display: none;">
+
+<img id="escalenos" src="imagens/escalenos.png" style="display: none;">
+<img id="isosceles" src="imagens/isosceles.png" style="display: none;">
+
+<img id="equilateroagudo" src="imagens/equilatero agudo.png" style="display: none;">
+<img id="escalenoagudo" src="imagens/escaleno e agudo.png" style="display: none;">
+<img id="escalenoobtuso" src="imagens/escaleno obtuso.png" style="display: none;">
+<img id="escalenoreto" src="imagens/escaleno reto.png" style="display: none;">
+<img id="isoscelesagudo" src="imagens/isosceles agudo.png" style="display: none;">
+<img id="isoscelesobtuso" src="imagens/isosceles obtuso.png" style="display: none;">
+<img id="isoscelesreto" src="imagens/isosceles reto.png" style="display: none;">
+
+
+            </div>
+        </td>
+    </tr>    
+</table>
+    </div>
+
+    <h1 class="h1anos">Anos</h1>
+   
+    
+    <div class="divanos">
+
+    <h3 class="h3-a1">Escreva um ano para descobrir </h3>
+    <h3 class="h3-a2">as suas peculiaridades</h3>
+
+        <form class="formanos" onsubmit="addano(event)">
+            <label for="ano">Escreva um ano (a partir do ano 2000):</label>
+            <input type="number" id="anodado" min="2000"  oninput="this.value|=0" required>
+        </br>
+            <button type="submit">Descobrir</button>
+    </br>
+        </form>
+        
+        <div class="divtabanos">
+        <table class="tabanos" id="tabanos">
+            <thead>
+                <tr>
+                    <th>Anos</th>
+                    <th>Peculiaridades</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- onde vai aparecer o histórico -->
+            </tbody>
+        </table>
+        <button class="btreiniciaranos" onclick="reiniciaranos()">Reiniciar tabela</button>
+</div>
+
+</div>
+
+<script type= "text/javascript">
+                
+    
+function instrucoes() {
+    var instrucoes = document.getElementById("instrucoes");
+    if (instrucoes.style.display === "none") {
+        instrucoes.style.display = "block";
+    } else {
+        instrucoes.style.display = "none";
+    }
+}
+
+
+    function lados(){
+        
+        let formlados = document.getElementById("formlados");
+
+    if (formlados.style.display === "block") {
+        formlados.style.display = "none";
+    } 
+    
+    else {
+        formlados.style.display = "block";
+    }
+
+    }
+
+    function angulos(){
+        let formangulos = document.getElementById("formangulos");
+
+    if (formangulos.style.display === "block") {
+        formangulos.style.display = "none";
+    } 
+    else {
+        formangulos.style.display = "block";
+    }
+
+    }
+
+    function criar(){
+
+    let l1 = parseFloat(document.getElementById("l1").value);
+    let l2 = parseFloat(document.getElementById("l2").value);
+    let l3 = parseFloat(document.getElementById("l3").value);
+
+    let a1 = parseFloat(document.getElementById("a1").value);
+    let a2 = parseFloat(document.getElementById("a2").value);
+     let a3 = parseFloat(document.getElementById("a3").value);
+
+    
+
+    let halados = !isNaN(l1) && !isNaN(l2) && !isNaN(l3);
+    let haangulos = !isNaN(a1) && !isNaN(a2) && !isNaN(a3);
+
+    if (!halados && !haangulos) {
+        alert("Por favor escreva pelo menos num dos parâmetros para criar o triângulo.");
+        return;
+    }
+    
+    if (halados) {
+        
+        if (l1 <= 0 || l2 <= 0 || l3 <= 0 || l1 + l2 <= l3 || l1 + l3 <= l2 || l2 + l3 <= l1) {
+            alert("Os lados devem ser números positivos e respeitar a desigualdade do triângulo (a soma de dois dos lados tem de ser maior do que o terceiro lado).");
+            return;
+        }
+    }
+
+    if (haangulos) {
+        if (a1 <= 0 || a2 <= 0 || a3 <= 0) {
+            alert("Os ângulos devem ser números positivos.");
+            return;
+        }
+        if (a1 + a2 + a3 > 180) {
+            alert("Não é possível criar o triângulo. A soma dos ângulos não pode exceder os 180°.");
+            return;
+        }
+        if (a1 + a2 + a3 < 180){
+            alert("Não é possível criar o triângulo. A soma dos ângulos não pode ser inferior a 180°.");
+            return;
+        }
+    }
+
+
+    let lados = "";
+    let angulos = "";
+
+    let equilateroagudo = document.getElementById("equilateroagudo");
+    let escalenoagudo = document.getElementById("escalenoagudo");
+    let escalenoobtuso = document.getElementById("escalenoobtuso");
+    let escalenoreto = document.getElementById("escalenoreto");
+    let isoscelesagudo = document.getElementById("isoscelesagudo");
+    let isoscelesobtuso = document.getElementById("isoscelesobtuso");
+    let isoscelesreto = document.getElementById("isoscelesreto");
+
+
+    equilateroagudo.style.display = "none";
+    escalenoagudo.style.display = "none";
+    escalenoobtuso.style.display = "none";
+    escalenoreto.style.display = "none";
+    isoscelesagudo.style.display = "none";
+    isoscelesobtuso.style.display = "none";
+    isoscelesreto.style.display = "none";
+
+
+    if (halados && haangulos){
+        if (l1===l2 && l2 === l3 && (a1 !== 60 || a2 !== 60 || a3 !== 60)) {
+            alert("Se os lados forem iguais, todos os ângulos devem ser 60°.");
+            return;
+        }
+        if (a1 === 60 && a2 === 60 && a3 === 60 && (l1 !== l2 || l2 !== l3)) {
+            alert("Se todos os ângulos forem 60°, todos os lados devem ser iguais.");
+            return;
+        }
+        if (a1 === a2 && l1 !== l2 || a1 === a3 && l1 !== l3 || a2 === a3 && l2 !== l3) {
+            alert("Se dois ângulos são iguais, os lados opostos também devem ser iguais.");
+            return;
+        }
+
+        if ((l1 === l2 && a1 !== a2) || (l1 === l3 && a1 !== a3) || (l2 === l3 && a2 !== a3)) {
+        alert("Se dois lados são iguais, os ângulos opostos também devem ser iguais.");
+        return;
+    }
+
+        if ((a1 === 90 && (l1 ** 2 + l2 ** 2 !== l3 ** 2 && l1 ** 2 + l3 ** 2 !== l2 ** 2)) || (a2 === 90 && (l1 ** 2 + l3 ** 2 !== l2 ** 2 && l2 ** 2 + l3 ** 2 !==  l1 ** 2)) || (a3 === 90 && (l1 ** 2 + l2 ** 2 !== l3 ** 2 && l2 ** 2 + l3 ** 2 !== l1 ** 2))) {
+        alert("Se um ângulo é 90º, os lados devem seguir o Teorema de Pitágoras.");
+        return;
+    }
+        if (l1===l2 && l2 === l3 && a1 === 60 && a2 === 60 && a3 === 60){
+            lados = "Equilátero";
+            angulos = "Agudo, como este:";
+            equilateroagudo.style.display = "block";
+        }
+        else if(l1 !== l2 && l1 !== l3 && l2 !== l3){
+            if (a1 < 90 && a2 < 90 && a3 < 90){
+                lados = "Escaleno";
+                angulos = "Agudo, como este:";
+                escalenoagudo.style.display = "block";
+            }
+            else if (a1 > 90 || a2 > 90 || a3 > 90){
+                lados = "Escaleno";
+            angulos = "Obtuso, como este:";
+            escalenoobtuso.style.display = "block";
+            }
+
+            else if(a1 === 90 || a2 === 90 || a3 === 90){
+                lados = "Escaleno";
+                angulos = "Retângulo, como este:";
+                escalenoreto.style.display = "block";
+            }
+           
+        }
+        else if(l1 === l2 || l1 === l3 || l2 === l3){
+
+            if (a1 < 90 && a2 < 90 && a3 < 90){
+            
+            lados = "Isósceles";
+            angulos = "Agudo, como este:";
+            isoscelesagudo.style.display = "block";}
+
+            else if(a1 > 90 || a2 > 90 || a3 > 90){
+            lados = "Isósceles";
+            angulos = "Obtuso, como este:";
+            isoscelesobtuso.style.display = "block";
+        }
+            else if(a1 === 90 || a2 === 90 || a3 === 90){
+            lados = "Isósceles";
+            angulos = "Retângulo, como este:";
+            isoscelesreto.style.display = "block";
+        }
+        }
+        
+        
+        
+    }
+
+    let isosceles = document.getElementById("isosceles");
+    let escalenos = document.getElementById("escalenos");
+
+    isosceles.style.display = "none";
+    escalenos.style.display = "none";
+
+    if (halados && !haangulos){
+
+    if (l1 === l2 && l2 === l3) {
+        lados = "Equilátero, e também agudo, como este:";
+        equilateroagudo.style.display = "block";
+    } 
+    else if (l1 === l2 || l1 === l3 || l2 === l3) {
+        lados = "Isósceles, como estes:";
+        isosceles.style.display = "block"
+    } 
+    else {
+        lados = "Escaleno, como estes:";
+        escalenos.style.display = "block"
+    }
+}
+    
+    
+    let agudos = document.getElementById("agudos");
+    let obtusos = document.getElementById("obtusos");
+    let retos = document.getElementById("retos");
+
+    agudos.style.display = "none";
+    obtusos.style.display = "none";
+    retos.style.display = "none";
+
+    if(haangulos && !halados){
+    if (a1 === 90 || a2 === 90 || a3 === 90) {
+        angulos = "Retângulo, como estes:";
+        retos.style.display = "block";
+    } 
+    else if (a1 > 90 || a2 > 90 || a3 > 90) {
+        angulos = "Obtuso, como estes:";
+        obtusos.style.display = "block";
+    } 
+    else if (a1 === 60 && a2 === 60 && a3 === 60 && !halados) {
+        angulos = "Agudo, e também equilátero, como este:";
+        equilateroagudo.style.display = "block";
+    } 
+    else {
+        angulos = "Agudo, como estes:";
+        agudos.style.display = "block";
+    }
+}
+
+
+
+let texto ="<br>O triângulo é"
+
+if (lados && angulos){
+    texto += "<br><br>Em relação aos seus lados: " + lados + "<br><br>Em relação aos seus ângulos: " + angulos;
+
+    if (lados === "Equilátero" && angulos === "Agudo, como este:"){
+         texto += "<br><br><img src='imagens/equilatero agudo.png' style='max-width: 100px;'>"
+    }
+
+    if (lados === "Escaleno" && angulos === "Agudo, como este:"){
+         texto += "<br><br><img src='imagens/escaleno e agudo.png' style='max-width: 100px;'>"
+    }
+
+    if (lados === "Escaleno" && angulos === "Obtuso, como este:"){
+         texto += "<br><br><img src='imagens/escaleno obtuso.png' style='max-width: 100px;'>"
+    }
+    if (lados === "Escaleno" && angulos === "Retângulo, como este:"){
+         texto += "<br><br><img src='imagens/escaleno reto.png' style='max-width: 100px;'>"
+    }
+    if (lados === "Isósceles" && angulos === "Agudo, como este:"){
+         texto += "<br><br><img src='imagens/isosceles agudo.png' style='max-width: 100px;'>"
+    }
+    if (lados === "Isósceles" && angulos === "Obtuso, como este:"){
+         texto += "<br><br><img src='imagens/isosceles obtuso.png' style='max-width: 100px;'>"
+    }
+    if (lados === "Isósceles" && angulos === "Retângulo, como este:"){
+         texto += "<br><br><img src='imagens/isosceles reto.png' style='max-width: 100px;'>"
+    }
+}
+
+if (lados && !angulos) {
+    texto += "<br><br>Em relação aos seus lados: " + lados;
+
+    if (lados === "Equilátero, e também agudo, como este:"){
+         texto += "<br><br><img src='imagens/equilatero agudo.png' style='max-width: 100px;'>"
+    }
+    if (lados === "Isósceles, como estes:"){
+         texto += "<br><br><img src='imagens/isosceles.png' style='max-width: 100px;'>"
+    }
+    if (lados === "Escaleno, como estes:"){
+         texto += "<br><br><img src='imagens/escalenos.png' style='max-width: 100px;'>"
+    }
+}
+
+if (angulos && !lados) {
+    texto += "<br><br>Em relação aos seus ângulos: " + angulos;
+
+    if (angulos === "Retângulo, como estes:"){
+        texto += "<br><br><img src='imagens/retos.png' style='max-width: 100px;'>";
+    }
+    
+    else if (angulos === "Obtuso, como estes:") {
+        texto += "<br><br><img src='imagens/obtusos.png' style='max-width: 100px;'>";
+    } 
+    else if (angulos === "Agudo, e também equilátero, como este:") {
+        texto += "<br><br><img src='imagens/equilatero agudo.png' style='max-width: 100px;'>";
+    }
+    else if (angulos === "Agudo, como estes:") {
+        texto += "<br><br><img src='imagens/agudos.png' style='max-width: 100px;'>";
+    }
+
+}
+
+
+document.getElementById("final").innerHTML = texto;
+document.getElementById("final").style.display = "block";
+    }
+
+
+    
+
+    function addano(event) {
+    event.preventDefault();
+
+let anodado = document.getElementById("anodado");
+let ano = parseInt(anodado.value);
+
+let pec = ""; 
+
+
+if (ano % 4 === 0 && (ano % 100 !== 0 || ano % 400 === 0)) {
+    pec += "Ano bissexto"; 
+}
+
+if (ano % 15 === 0) {
+    pec += (pec ? "\n" : "") + "Festival Huluculu"; 
+}
+
+
+if (ano % 55 === 0 && (ano % 4 === 0 && (ano % 100 !== 0 || ano % 400 === 0))) {
+    pec += (pec ? "\n" : "") + "Festival Bulukulu"; 
+}
+
+
+if (!pec) {
+    pec = "Ano normal";
+}
+
+let bodytabela = document.getElementById("tabanos").getElementsByTagName("tbody")[0];
+let linha = bodytabela.insertRow();
+
+let cellanos = linha.insertCell(0);
+let cellpec = linha.insertCell(1);
+
+cellanos.textContent = ano;
+cellpec.textContent = pec; 
+cellpec.className = "peculiaridades";
+cellpec.style.whiteSpace = "pre-wrap"; 
+
+anodado.value = "";
+
+}
+function reiniciaranos() {
+            let corpotabela = document.getElementById("tabanos").getElementsByTagName("tbody")[0];
+            corpotabela.innerHTML = "";
+        }
+
+</script>
+
+
+</body>
+</html>
